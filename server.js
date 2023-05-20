@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const colors = require('colors')
 const dotenv = require('dotenv')
+const mongoose = require('mongoose');
 
 dotenv.config()
 
@@ -12,6 +13,16 @@ app.use(express.json());
 app.use(cors())
 app.use(express.urlencoded({extended: true}))
 
+const mongoConnect = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI)
+        console.log(`MongoDB connection was successfully established`.cyan.underline);
+    } catch (error) {
+        
+    }
+}
+mongoConnect()
+
 app.listen(PORT, () => {
-    console.log(`Server is running on PORT: ${PORT}`);
+    console.log(`Server is running on PORT: ${PORT}`.blue);
 })
