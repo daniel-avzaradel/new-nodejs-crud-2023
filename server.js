@@ -14,12 +14,8 @@ app.use(cors())
 app.use(express.urlencoded({extended: true}))
 
 const mongoConnect = async () => {
-    try {
         await mongoose.connect(process.env.MONGO_URI)
         console.log(`MongoDB connection was successfully established`.cyan.underline);
-    } catch (error) {
-        
-    }
 }
 mongoConnect()
 
