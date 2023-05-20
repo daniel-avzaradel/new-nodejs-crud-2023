@@ -13,6 +13,7 @@
   "name": "express",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
